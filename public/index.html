@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Система обращений</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form, .tickets { max-width: 600px; margin-bottom: 40px; }
+    input, textarea, button, select { width: 100%; padding: 8px; margin-top: 5px; margin-bottom: 15px; }
+    button { cursor: pointer; }
+    .ticket { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    .status { font-weight: bold; }
+    .controls button { margin-right: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Создать обращение</h1>
+<form id="createForm">
+  <label>Тема:</label>
+  <input type="text" name="subject" required />
+  
+  <label>Текст обращения:</label>
+  <textarea name="message" rows="4" required></textarea>
+
+  <button type="submit">Создать</button>
+</form>
+
+<h2>Фильтр обращений</h2>
+<form id="filterForm">
+  <label>Дата (для одного дня):</label>
+  <input type="date" name="date" />
+  <label>ИЛИ Диапазон дат:</label>
+  <input type="date" name="startDate" /> - <input type="date" name="endDate" />
+  <button type="submit">Фильтровать</button>
+  <button type="button" id="clearFilter">Очистить фильтр</button>
+</form>
+
+<h2>Список обращений</h2>
+<div class="tickets" id="tickets"></div>
+
+<button id="cancelAllInProgress">Отменить все обращения в работе</button>
+
+<script src="script.js"></script>
+</body>
+</html>
